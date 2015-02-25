@@ -213,10 +213,10 @@ class hp_mcp::hpsmh (
       realize Group['hpsmh']
       realize User['hpsmh']
 
-      package { 'cpqacuxe':
-        ensure => $package_ensure,
-        notify => Service['hpsmhd'],
-      }
+      # package { 'cpqacuxe':
+      #   ensure => $package_ensure,
+      #   notify => Service['hpsmhd'],
+      # }
 
       package { 'hpdiags':
         ensure  => $package_ensure,

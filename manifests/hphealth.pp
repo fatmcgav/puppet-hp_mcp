@@ -102,8 +102,14 @@ class hp_mcp::hphealth (
         ensure => $package_ensure,
       }
 
-      package { 'hpacucli':
-        ensure => $package_ensure,
+      if $::operatingsystemrelease =~ /^6.*/ {
+        package { 'hpacucli':
+          ensure => $package_ensure,
+        }
+      } elsif $::operatingsystemrelease =~ /^7.*/ {
+        package { 'hpssacli':
+          ensure => $package_ensure,
+        }
       }
 
       service { 'hp-health':
